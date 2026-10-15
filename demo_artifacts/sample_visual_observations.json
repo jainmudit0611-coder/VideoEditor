@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": 5.0,
+    "category": "disclosure",
+    "description": "Clear visual hashtag disclosure '#AD | SPONSORED BY ACME' displayed at top-left corner",
+    "text": "#AD | SPONSORED BY ACME",
+    "visible": true,
+    "confidence": 0.96,
+    "mode": "NATIVE_VISION",
+    "source_frame": "frame_5_0s.jpg"
+  },
+  {
+    "timestamp": 12.0,
+    "category": "cta",
+    "description": "Promotional overlay text 'USE CODE: DISCOUNT20 FOR 20% OFF' displayed across bottom of screen",
+    "text": "USE CODE: DISCOUNT20",
+    "visible": true,
+    "confidence": 0.92,
+    "mode": "NATIVE_VISION",
+    "source_frame": "frame_12_0s.jpg"
+  }
+]

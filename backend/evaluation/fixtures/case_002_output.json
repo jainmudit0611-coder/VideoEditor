@@ -1,0 +1,44 @@
+{
+  "audit_id": "audit_eval_002",
+  "video_id": "mock_clear_audio_disclosure",
+  "status": "PASS",
+  "final_report": "# Compliance Audit Report\n\n## Summary\nAudit passed with compliant audible disclosure.",
+  "compliance_results": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "severity": "PASS",
+      "description": "Compliant clear audio disclosure present in opening segment",
+      "timestamp": "00:03"
+    }
+  ],
+  "retrieved_evidence": [
+    {
+      "type": "TRANSCRIPT",
+      "text": "Welcome back everyone, this video is sponsored by BrandX, but all opinions remain my own",
+      "timestamp": "00:03"
+    }
+  ],
+  "citations": [
+    {
+      "rule_category": "FTC_DISCLOSURE",
+      "document": "FTC Guides Concerning Use of Endorsements",
+      "content": "Audible disclosure in introduction meets clear and conspicuous threshold."
+    }
+  ],
+  "verification_summary": {
+    "status": "VERIFIED",
+    "grounding_score": 0.98,
+    "reason": "Clear spoken sponsorship statement present at start."
+  },
+  "is_degraded_vision_mode": false,
+  "timing_metrics": {
+    "video_download": 1.5,
+    "frame_extraction": 1.0,
+    "vision": 2.5,
+    "planner": 0.8,
+    "auditor": 1.2,
+    "verifier": 0.9,
+    "report": 0.4,
+    "total": 8.3
+  }
+}

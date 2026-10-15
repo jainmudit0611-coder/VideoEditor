@@ -1,0 +1,44 @@
+{
+  "audit_id": "audit_eval_004",
+  "video_id": "mock_unsubstantiated_health_claim",
+  "status": "FAIL",
+  "final_report": "# Compliance Audit Report\n\n## Summary\nViolations detected: Unsubstantiated medical efficacy claims.",
+  "compliance_results": [
+    {
+      "category": "HEALTH_CLAIM",
+      "severity": "FAIL",
+      "description": "Unverified medical efficacy claim stating product cures chronic migraines",
+      "timestamp": "00:18"
+    }
+  ],
+  "retrieved_evidence": [
+    {
+      "type": "TRANSCRIPT",
+      "text": "I can personally guarantee that this supplement completely cures chronic migraines within 24 hours",
+      "timestamp": "00:18"
+    }
+  ],
+  "citations": [
+    {
+      "rule_category": "HEALTH_CLAIM",
+      "document": "FTC Health Products Compliance Guidance",
+      "content": "Health and efficacy claims must be backed by competent and reliable scientific evidence."
+    }
+  ],
+  "verification_summary": {
+    "status": "VERIFIED",
+    "grounding_score": 0.96,
+    "reason": "Direct medical curative claim detected without clinical substantiation"
+  },
+  "is_degraded_vision_mode": false,
+  "timing_metrics": {
+    "video_download": 1.8,
+    "frame_extraction": 1.2,
+    "vision": 2.8,
+    "planner": 1.1,
+    "auditor": 1.6,
+    "verifier": 1.3,
+    "report": 0.6,
+    "total": 10.4
+  }
+}

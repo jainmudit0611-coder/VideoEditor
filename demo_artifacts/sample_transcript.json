@@ -1,0 +1,20 @@
+[
+  {
+    "start_time": 0.0,
+    "end_time": 4.5,
+    "speaker": "Speaker 1",
+    "text": "Hey everyone, welcome back to the channel! Today I'm super excited to review this revolutionary product."
+  },
+  {
+    "start_time": 5.0,
+    "end_time": 11.2,
+    "speaker": "Speaker 1",
+    "text": "Huge thanks to Acme Brand for sponsoring today's video and sending this out."
+  },
+  {
+    "start_time": 12.0,
+    "end_time": 18.4,
+    "speaker": "Speaker 1",
+    "text": "This device is 100% guaranteed to eliminate all stress instantly with zero side effects."
+  }
+]

@@ -1,0 +1,185 @@
+# ==============================================================================
+# Brand Guardian AI — Production Docker Compose Configuration (Phase 7)
+# ==============================================================================
+# Services:
+#   1. postgres: Persistent relational database (v16) with healthchecks
+#   2. redis: Asynchronous queue broker (v7) with AOF persistence & healthchecks
+#   3. migration: Controlled database initializer stamping schema to Alembic head
+#   4. api: FastAPI ASGI application server (uvicorn) with /health/ready probe
+#   5. worker: LangGraph background processing worker pulling from Redis queue
+#   6. frontend: Multi-stage Angular 21 production build served via Nginx reverse proxy
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: brand_guardian_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgrespassword}
+      POSTGRES_DB: ${POSTGRES_DB:-brand_guardian}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-brand_guardian}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - brand_guardian_net
+
+  redis:
+    image: redis:7-alpine
+    container_name: brand_guardian_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - brand_guardian_net
+
+  migration:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: brand_guardian_migration
+    command: python -m backend.scripts.init_db
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgrespassword}@postgres:5432/${POSTGRES_DB:-brand_guardian}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+    networks:
+      - brand_guardian_net
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: brand_guardian_api
+    restart: unless-stopped
+    command: uvicorn backend.src.api.server:app --host 0.0.0.0 --port 8000 --workers 2
+    ports:
+      - "${API_PORT:-8000}:8000"
+    environment:
+      ENVIRONMENT: production
+      DEBUG: "false"
+      APP_VERSION: "3.0.0"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgrespassword}@postgres:5432/${POSTGRES_DB:-brand_guardian}
+      REDIS_URL: redis://redis:6379/0
+      REDIS_REQUIRED: "true"
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-brand-guardian-production-secret-key-at-least-32-chars!}
+      JWT_ALGORITHM: HS256
+      JWT_ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:4200,http://localhost:80,http://localhost:3000,http://127.0.0.1:4200,http://127.0.0.1:80}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1,api,frontend}
+      LOG_FORMAT: json
+      LOG_LEVEL: INFO
+      # Azure Integrations (Leave empty for local degraded OCR fallback)
+      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING:-}
+      AZURE_OPENAI_ENDPOINT: ${AZURE_OPENAI_ENDPOINT:-}
+      AZURE_OPENAI_API_KEY: ${AZURE_OPENAI_API_KEY:-}
+      AZURE_OPENAI_CHAT_DEPLOYMENT: ${AZURE_OPENAI_CHAT_DEPLOYMENT:-}
+      AZURE_SEARCH_ENDPOINT: ${AZURE_SEARCH_ENDPOINT:-}
+      AZURE_SEARCH_API_KEY: ${AZURE_SEARCH_API_KEY:-}
+      AZURE_VI_ACCOUNT_ID: ${AZURE_VI_ACCOUNT_ID:-}
+      AZURE_VI_LOCATION: ${AZURE_VI_LOCATION:-}
+      AZURE_SUBSCRIPTION_ID: ${AZURE_SUBSCRIPTION_ID:-}
+      AZURE_RESOURCE_GROUP: ${AZURE_RESOURCE_GROUP:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - brand_guardian_net
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: brand_guardian_worker
+    restart: unless-stopped
+    command: python -m backend.src.worker.worker
+    environment:
+      ENVIRONMENT: production
+      DEBUG: "false"
+      APP_VERSION: "3.0.0"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgrespassword}@postgres:5432/${POSTGRES_DB:-brand_guardian}
+      REDIS_URL: redis://redis:6379/0
+      REDIS_REQUIRED: "true"
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-brand-guardian-production-secret-key-at-least-32-chars!}
+      LOG_FORMAT: json
+      LOG_LEVEL: INFO
+      # Azure Integrations
+      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING:-}
+      AZURE_OPENAI_ENDPOINT: ${AZURE_OPENAI_ENDPOINT:-}
+      AZURE_OPENAI_API_KEY: ${AZURE_OPENAI_API_KEY:-}
+      AZURE_OPENAI_CHAT_DEPLOYMENT: ${AZURE_OPENAI_CHAT_DEPLOYMENT:-}
+      AZURE_SEARCH_ENDPOINT: ${AZURE_SEARCH_ENDPOINT:-}
+      AZURE_SEARCH_API_KEY: ${AZURE_SEARCH_API_KEY:-}
+      AZURE_VI_ACCOUNT_ID: ${AZURE_VI_ACCOUNT_ID:-}
+      AZURE_VI_LOCATION: ${AZURE_VI_LOCATION:-}
+      AZURE_SUBSCRIPTION_ID: ${AZURE_SUBSCRIPTION_ID:-}
+      AZURE_RESOURCE_GROUP: ${AZURE_RESOURCE_GROUP:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
+    networks:
+      - brand_guardian_net
+
+  frontend:
+    build:
+      context: ./frontend-angular
+      dockerfile: Dockerfile
+    container_name: brand_guardian_frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - brand_guardian_net
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  brand_guardian_net:
+    driver: bridge

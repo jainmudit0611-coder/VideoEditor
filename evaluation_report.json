@@ -1,0 +1,499 @@
+{
+  "evaluation_run_id": "eval_run_20260923_135606",
+  "timestamp": "2026-09-23T13:56:06.927674+00:00",
+  "dataset_version": "v1",
+  "dataset_type": "MANUALLY_CURATED",
+  "n_cases": 6,
+  "execution_modes": [
+    "DEGRADED_OCR_FALLBACK",
+    "NATIVE_VISION"
+  ],
+  "aggregate_metrics": {
+    "finding_precision": 1.0,
+    "finding_recall": 1.0,
+    "finding_f1": 1.0,
+    "true_positives": 5,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "total_expected_findings": 5,
+    "total_actual_findings": 5,
+    "evidence_support_rate": 1.0,
+    "unsupported_finding_rate": 0.0,
+    "citation_presence_rate": 1.0,
+    "citation_completeness_rate": 1.0,
+    "schema_validity_rate": 1.0,
+    "verifier_agreement_rate": 1.0,
+    "latency": {
+      "n_samples": 6,
+      "mean_duration_sec": 8.1,
+      "median_duration_sec": 8.15,
+      "min_duration_sec": 6.0,
+      "max_duration_sec": 10.4,
+      "stage_latencies": {
+        "video_download": 1.483,
+        "frame_extraction": 1.017,
+        "vision": 2.083,
+        "planner": 0.85,
+        "auditor": 1.25,
+        "verifier": 0.967,
+        "report": 0.45
+      }
+    },
+    "mode_breakdown": {
+      "NATIVE_VISION": {
+        "cases": 5,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "DEGRADED_OCR_FALLBACK": {
+        "cases": 1,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  },
+  "case_results": [
+    {
+      "case_id": "case_001",
+      "execution_mode": "NATIVE_VISION",
+      "finding_metrics": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "matched_count": 1,
+        "total_expected": 1,
+        "total_actual": 1,
+        "discrepancies": []
+      },
+      "grounding_metrics": {
+        "total_findings": 1,
+        "supported_findings": 1,
+        "unsupported_findings": 0,
+        "evidence_support_rate": 1.0,
+        "unsupported_finding_rate": 0.0,
+        "transcript_matches": 1,
+        "ocr_matches": 0,
+        "visual_matches": 0,
+        "visual_evaluation_status": "AVAILABLE",
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "supported": true,
+            "has_timestamp": true,
+            "has_direct_evidence": false
+          }
+        ]
+      },
+      "citation_metrics": {
+        "total_findings": 1,
+        "cited_findings": 1,
+        "citation_presence_rate": 1.0,
+        "complete_citations_count": 1,
+        "completeness_rate": 1.0,
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "has_citation": true,
+            "is_complete": true
+          }
+        ]
+      },
+      "schema_metrics": {
+        "is_valid": true,
+        "schema_validity_rate": 1.0,
+        "missing_required_fields": [],
+        "invalid_data_types": [],
+        "validation_errors": []
+      },
+      "verifier_metrics": {
+        "expected_status": "VERIFIED",
+        "actual_status": "VERIFIED",
+        "agreement": true,
+        "status": "AGREED"
+      },
+      "timing_metrics": {
+        "video_download": 1.2,
+        "frame_extraction": 0.8,
+        "vision": 2.1,
+        "planner": 0.9,
+        "auditor": 1.4,
+        "verifier": 1.1,
+        "report": 0.5,
+        "total": 8.0
+      },
+      "discrepancies": []
+    },
+    {
+      "case_id": "case_002",
+      "execution_mode": "NATIVE_VISION",
+      "finding_metrics": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "matched_count": 1,
+        "total_expected": 1,
+        "total_actual": 1,
+        "discrepancies": []
+      },
+      "grounding_metrics": {
+        "total_findings": 1,
+        "supported_findings": 1,
+        "unsupported_findings": 0,
+        "evidence_support_rate": 1.0,
+        "unsupported_finding_rate": 0.0,
+        "transcript_matches": 1,
+        "ocr_matches": 0,
+        "visual_matches": 0,
+        "visual_evaluation_status": "AVAILABLE",
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "supported": true,
+            "has_timestamp": true,
+            "has_direct_evidence": false
+          }
+        ]
+      },
+      "citation_metrics": {
+        "total_findings": 1,
+        "cited_findings": 1,
+        "citation_presence_rate": 1.0,
+        "complete_citations_count": 1,
+        "completeness_rate": 1.0,
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "has_citation": true,
+            "is_complete": true
+          }
+        ]
+      },
+      "schema_metrics": {
+        "is_valid": true,
+        "schema_validity_rate": 1.0,
+        "missing_required_fields": [],
+        "invalid_data_types": [],
+        "validation_errors": []
+      },
+      "verifier_metrics": {
+        "expected_status": "VERIFIED",
+        "actual_status": "VERIFIED",
+        "agreement": true,
+        "status": "AGREED"
+      },
+      "timing_metrics": {
+        "video_download": 1.5,
+        "frame_extraction": 1.0,
+        "vision": 2.5,
+        "planner": 0.8,
+        "auditor": 1.2,
+        "verifier": 0.9,
+        "report": 0.4,
+        "total": 8.3
+      },
+      "discrepancies": []
+    },
+    {
+      "case_id": "case_003",
+      "execution_mode": "NATIVE_VISION",
+      "finding_metrics": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "matched_count": 1,
+        "total_expected": 1,
+        "total_actual": 1,
+        "discrepancies": []
+      },
+      "grounding_metrics": {
+        "total_findings": 1,
+        "supported_findings": 1,
+        "unsupported_findings": 0,
+        "evidence_support_rate": 1.0,
+        "unsupported_finding_rate": 0.0,
+        "transcript_matches": 0,
+        "ocr_matches": 1,
+        "visual_matches": 0,
+        "visual_evaluation_status": "AVAILABLE",
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "supported": true,
+            "has_timestamp": true,
+            "has_direct_evidence": false
+          }
+        ]
+      },
+      "citation_metrics": {
+        "total_findings": 1,
+        "cited_findings": 1,
+        "citation_presence_rate": 1.0,
+        "complete_citations_count": 1,
+        "completeness_rate": 1.0,
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "has_citation": true,
+            "is_complete": true
+          }
+        ]
+      },
+      "schema_metrics": {
+        "is_valid": true,
+        "schema_validity_rate": 1.0,
+        "missing_required_fields": [],
+        "invalid_data_types": [],
+        "validation_errors": []
+      },
+      "verifier_metrics": {
+        "expected_status": "VERIFIED",
+        "actual_status": "VERIFIED",
+        "agreement": true,
+        "status": "AGREED"
+      },
+      "timing_metrics": {
+        "video_download": 1.1,
+        "frame_extraction": 0.7,
+        "vision": 1.9,
+        "planner": 0.7,
+        "auditor": 1.1,
+        "verifier": 0.8,
+        "report": 0.4,
+        "total": 6.7
+      },
+      "discrepancies": []
+    },
+    {
+      "case_id": "case_004",
+      "execution_mode": "NATIVE_VISION",
+      "finding_metrics": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "matched_count": 1,
+        "total_expected": 1,
+        "total_actual": 1,
+        "discrepancies": []
+      },
+      "grounding_metrics": {
+        "total_findings": 1,
+        "supported_findings": 1,
+        "unsupported_findings": 0,
+        "evidence_support_rate": 1.0,
+        "unsupported_finding_rate": 0.0,
+        "transcript_matches": 1,
+        "ocr_matches": 0,
+        "visual_matches": 0,
+        "visual_evaluation_status": "AVAILABLE",
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "HEALTH_CLAIM",
+            "supported": true,
+            "has_timestamp": true,
+            "has_direct_evidence": false
+          }
+        ]
+      },
+      "citation_metrics": {
+        "total_findings": 1,
+        "cited_findings": 1,
+        "citation_presence_rate": 1.0,
+        "complete_citations_count": 1,
+        "completeness_rate": 1.0,
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "HEALTH_CLAIM",
+            "has_citation": true,
+            "is_complete": true
+          }
+        ]
+      },
+      "schema_metrics": {
+        "is_valid": true,
+        "schema_validity_rate": 1.0,
+        "missing_required_fields": [],
+        "invalid_data_types": [],
+        "validation_errors": []
+      },
+      "verifier_metrics": {
+        "expected_status": "VERIFIED",
+        "actual_status": "VERIFIED",
+        "agreement": true,
+        "status": "AGREED"
+      },
+      "timing_metrics": {
+        "video_download": 1.8,
+        "frame_extraction": 1.2,
+        "vision": 2.8,
+        "planner": 1.1,
+        "auditor": 1.6,
+        "verifier": 1.3,
+        "report": 0.6,
+        "total": 10.4
+      },
+      "discrepancies": []
+    },
+    {
+      "case_id": "case_005",
+      "execution_mode": "NATIVE_VISION",
+      "finding_metrics": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "matched_count": 0,
+        "total_expected": 0,
+        "total_actual": 0,
+        "discrepancies": []
+      },
+      "grounding_metrics": {
+        "total_findings": 0,
+        "supported_findings": 0,
+        "unsupported_findings": 0,
+        "evidence_support_rate": 1.0,
+        "unsupported_finding_rate": 0.0,
+        "transcript_matches": 0,
+        "ocr_matches": 0,
+        "visual_matches": 0,
+        "visual_evaluation_status": "AVAILABLE",
+        "details": []
+      },
+      "citation_metrics": {
+        "total_findings": 0,
+        "cited_findings": 0,
+        "citation_presence_rate": 1.0,
+        "complete_citations_count": 0,
+        "completeness_rate": 1.0,
+        "details": []
+      },
+      "schema_metrics": {
+        "is_valid": true,
+        "schema_validity_rate": 1.0,
+        "missing_required_fields": [],
+        "invalid_data_types": [],
+        "validation_errors": []
+      },
+      "verifier_metrics": {
+        "expected_status": "VERIFIED",
+        "actual_status": "VERIFIED",
+        "agreement": true,
+        "status": "AGREED"
+      },
+      "timing_metrics": {
+        "video_download": 2.0,
+        "frame_extraction": 1.5,
+        "vision": 3.0,
+        "planner": 0.8,
+        "auditor": 0.9,
+        "verifier": 0.7,
+        "report": 0.3,
+        "total": 9.2
+      },
+      "discrepancies": []
+    },
+    {
+      "case_id": "case_006",
+      "execution_mode": "DEGRADED_OCR_FALLBACK",
+      "finding_metrics": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "matched_count": 1,
+        "total_expected": 1,
+        "total_actual": 1,
+        "discrepancies": []
+      },
+      "grounding_metrics": {
+        "total_findings": 1,
+        "supported_findings": 1,
+        "unsupported_findings": 0,
+        "evidence_support_rate": 1.0,
+        "unsupported_finding_rate": 0.0,
+        "transcript_matches": 1,
+        "ocr_matches": 0,
+        "visual_matches": 0,
+        "visual_evaluation_status": "NOT_AVAILABLE",
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "supported": true,
+            "has_timestamp": true,
+            "has_direct_evidence": false
+          }
+        ]
+      },
+      "citation_metrics": {
+        "total_findings": 1,
+        "cited_findings": 1,
+        "citation_presence_rate": 1.0,
+        "complete_citations_count": 1,
+        "completeness_rate": 1.0,
+        "details": [
+          {
+            "finding_index": 0,
+            "category": "FTC_DISCLOSURE",
+            "has_citation": true,
+            "is_complete": true
+          }
+        ]
+      },
+      "schema_metrics": {
+        "is_valid": true,
+        "schema_validity_rate": 1.0,
+        "missing_required_fields": [],
+        "invalid_data_types": [],
+        "validation_errors": []
+      },
+      "verifier_metrics": {
+        "expected_status": "NEEDS_MORE_EVIDENCE",
+        "actual_status": "NEEDS_MORE_EVIDENCE",
+        "agreement": true,
+        "status": "AGREED"
+      },
+      "timing_metrics": {
+        "video_download": 1.3,
+        "frame_extraction": 0.9,
+        "vision": 0.2,
+        "planner": 0.8,
+        "auditor": 1.3,
+        "verifier": 1.0,
+        "report": 0.5,
+        "total": 6.0
+      },
+      "discrepancies": []
+    }
+  ],
+  "error_analysis": [],
+  "limitations": [
+    "Dataset size is limited (N=6 cases); results represent benchmark validation, not production population accuracy.",
+    "Labels are MANUALLY_CURATED reference benchmarks for compliance rules rather than infallible ground truth.",
+    "In DEGRADED_OCR_FALLBACK mode, visual keyframe reasoning is unavailable; visual evaluation is reported as NOT_AVAILABLE.",
+    "Evaluation engine is strictly separate and does not alter production LangGraph execution or persistent audit status."
+  ]
+}

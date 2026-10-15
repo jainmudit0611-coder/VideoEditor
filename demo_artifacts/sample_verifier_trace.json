@@ -1,0 +1,20 @@
+{
+  "overall_status": "VERIFIED",
+  "results": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "verified": true,
+      "grounding_score": 1.0,
+      "reason": "Finding is fully grounded in policy (1001a-influencer-guide-508_1.pdf) and speech transcript at 00:05.0s and visual keyframe at 00:05.0s.",
+      "action": "VERIFIED"
+    },
+    {
+      "category": "CLAIM_VALIDATION",
+      "verified": true,
+      "grounding_score": 0.95,
+      "reason": "Finding is fully grounded in policy and speech transcript at 00:12.0s.",
+      "action": "VERIFIED"
+    }
+  ],
+  "feedback_summary": "All findings successfully verified against regulatory citations and timestamped video evidence."
+}

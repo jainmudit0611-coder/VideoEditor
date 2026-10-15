@@ -1,0 +1,33 @@
+{
+  "case_id": "case_003",
+  "description": "Video with prominent on-screen text OCR disclaimer banner",
+  "video_url": "https://www.youtube.com/watch?v=mock_ocr_visual_banner",
+  "dataset_version": "v1",
+  "dataset_type": "MANUALLY_CURATED",
+  "expected_findings": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "severity": "PASS",
+      "rule_id": "FTC_16_CFR_255",
+      "description_pattern": "Prominent on-screen paid promotion badge detected"
+    }
+  ],
+  "expected_evidence": [
+    {
+      "type": "OCR",
+      "contains": "Paid Partnership with BrandX",
+      "timestamp": "00:02"
+    }
+  ],
+  "expected_citations": [
+    {
+      "rule_category": "FTC_DISCLOSURE",
+      "document_contains": "FTC Visual Disclosure Policy"
+    }
+  ],
+  "expected_verifier_status": "VERIFIED",
+  "metadata": {
+    "target_channel": "Fashion Trends",
+    "video_duration_sec": 30
+  }
+}

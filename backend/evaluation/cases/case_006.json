@@ -1,0 +1,34 @@
+{
+  "case_id": "case_006",
+  "description": "Ambiguous disclosure in degraded OCR mode requiring verification review",
+  "video_url": "https://www.youtube.com/watch?v=mock_degraded_mode_case",
+  "dataset_version": "v1",
+  "dataset_type": "MANUALLY_CURATED",
+  "expected_findings": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "severity": "WARNING",
+      "rule_id": "FTC_16_CFR_255",
+      "description_pattern": "Ambiguous influencer relationship"
+    }
+  ],
+  "expected_evidence": [
+    {
+      "type": "TRANSCRIPT",
+      "contains": "thanks to our friends for sending this over",
+      "timestamp": "00:08"
+    }
+  ],
+  "expected_citations": [
+    {
+      "rule_category": "FTC_DISCLOSURE",
+      "document_contains": "FTC Guides Concerning Use of Endorsements"
+    }
+  ],
+  "expected_verifier_status": "NEEDS_MORE_EVIDENCE",
+  "metadata": {
+    "target_channel": "Tech Unboxing",
+    "video_duration_sec": 40,
+    "expected_mode": "DEGRADED_OCR_FALLBACK"
+  }
+}

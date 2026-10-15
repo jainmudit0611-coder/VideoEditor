@@ -1,0 +1,25 @@
+{
+  "audit_id": "audit_eval_005",
+  "video_id": "mock_organic_clean_video",
+  "status": "PASS",
+  "final_report": "# Compliance Audit Report\n\n## Summary\nNo regulatory compliance violations detected.",
+  "compliance_results": [],
+  "retrieved_evidence": [],
+  "citations": [],
+  "verification_summary": {
+    "status": "VERIFIED",
+    "grounding_score": 1.0,
+    "reason": "No commercial endorsements or regulated claims found"
+  },
+  "is_degraded_vision_mode": false,
+  "timing_metrics": {
+    "video_download": 2.0,
+    "frame_extraction": 1.5,
+    "vision": 3.0,
+    "planner": 0.8,
+    "auditor": 0.9,
+    "verifier": 0.7,
+    "report": 0.3,
+    "total": 9.2
+  }
+}

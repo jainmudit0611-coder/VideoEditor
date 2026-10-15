@@ -1,0 +1,15 @@
+{
+  "case_id": "case_005",
+  "description": "Completely compliant organic editorial video with no sponsored products or claims",
+  "video_url": "https://www.youtube.com/watch?v=mock_organic_clean_video",
+  "dataset_version": "v1",
+  "dataset_type": "MANUALLY_CURATED",
+  "expected_findings": [],
+  "expected_evidence": [],
+  "expected_citations": [],
+  "expected_verifier_status": "VERIFIED",
+  "metadata": {
+    "target_channel": "Cooking Academy",
+    "video_duration_sec": 120
+  }
+}

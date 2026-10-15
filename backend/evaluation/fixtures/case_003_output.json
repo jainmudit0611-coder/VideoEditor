@@ -1,0 +1,44 @@
+{
+  "audit_id": "audit_eval_003",
+  "video_id": "mock_ocr_visual_banner",
+  "status": "PASS",
+  "final_report": "# Compliance Audit Report\n\n## Summary\nAudit passed with prominent on-screen disclosure badge.",
+  "compliance_results": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "severity": "PASS",
+      "description": "Prominent on-screen paid promotion badge detected via OCR",
+      "timestamp": "00:02"
+    }
+  ],
+  "retrieved_evidence": [
+    {
+      "type": "OCR",
+      "text": "Paid Partnership with BrandX",
+      "timestamp": "00:02"
+    }
+  ],
+  "citations": [
+    {
+      "rule_category": "FTC_DISCLOSURE",
+      "document": "FTC Visual Disclosure Policy Guidance",
+      "content": "Visual superimposition must appear against high-contrast background."
+    }
+  ],
+  "verification_summary": {
+    "status": "VERIFIED",
+    "grounding_score": 0.92,
+    "reason": "OCR banner corroborated on frame."
+  },
+  "is_degraded_vision_mode": false,
+  "timing_metrics": {
+    "video_download": 1.1,
+    "frame_extraction": 0.7,
+    "vision": 1.9,
+    "planner": 0.7,
+    "auditor": 1.1,
+    "verifier": 0.8,
+    "report": 0.4,
+    "total": 6.7
+  }
+}

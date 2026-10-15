@@ -1,0 +1,33 @@
+{
+  "case_id": "case_001",
+  "description": "Missing FTC influencer disclosure on sponsored product review video",
+  "video_url": "https://www.youtube.com/watch?v=mock_sponsorship_no_disclosure",
+  "dataset_version": "v1",
+  "dataset_type": "MANUALLY_CURATED",
+  "expected_findings": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "severity": "FAIL",
+      "rule_id": "FTC_16_CFR_255",
+      "description_pattern": "Missing clear and conspicuous sponsorship disclosure"
+    }
+  ],
+  "expected_evidence": [
+    {
+      "type": "TRANSCRIPT",
+      "contains": "this brand sent me their latest flagship product",
+      "timestamp": "00:14"
+    }
+  ],
+  "expected_citations": [
+    {
+      "rule_category": "FTC_DISCLOSURE",
+      "document_contains": "FTC Guides Concerning Use of Endorsements"
+    }
+  ],
+  "expected_verifier_status": "VERIFIED",
+  "metadata": {
+    "target_channel": "Tech Reviews",
+    "video_duration_sec": 45
+  }
+}

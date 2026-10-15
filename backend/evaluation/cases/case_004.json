@@ -1,0 +1,33 @@
+{
+  "case_id": "case_004",
+  "description": "Unsubstantiated product health claim violating FDA/FTC efficacy rules",
+  "video_url": "https://www.youtube.com/watch?v=mock_unsubstantiated_health_claim",
+  "dataset_version": "v1",
+  "dataset_type": "MANUALLY_CURATED",
+  "expected_findings": [
+    {
+      "category": "HEALTH_CLAIM",
+      "severity": "FAIL",
+      "rule_id": "FTC_SUBSTANTIATION_POLICY",
+      "description_pattern": "Unverified medical efficacy claim"
+    }
+  ],
+  "expected_evidence": [
+    {
+      "type": "TRANSCRIPT",
+      "contains": "this supplement completely cures chronic migraines within 24 hours",
+      "timestamp": "00:18"
+    }
+  ],
+  "expected_citations": [
+    {
+      "rule_category": "HEALTH_CLAIM",
+      "document_contains": "FTC Health Products Compliance Guidance"
+    }
+  ],
+  "expected_verifier_status": "VERIFIED",
+  "metadata": {
+    "target_channel": "Wellness Guru",
+    "video_duration_sec": 75
+  }
+}

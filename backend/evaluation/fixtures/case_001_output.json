@@ -1,0 +1,44 @@
+{
+  "audit_id": "audit_eval_001",
+  "video_id": "mock_sponsorship_no_disclosure",
+  "status": "FAIL",
+  "final_report": "# Compliance Audit Report\n\n## Summary\nViolations detected: Missing FTC disclosure.",
+  "compliance_results": [
+    {
+      "category": "FTC_DISCLOSURE",
+      "severity": "FAIL",
+      "description": "Missing clear and conspicuous influencer sponsorship disclosure",
+      "timestamp": "00:14"
+    }
+  ],
+  "retrieved_evidence": [
+    {
+      "type": "TRANSCRIPT",
+      "text": "this brand sent me their latest flagship product to test out",
+      "timestamp": "00:14"
+    }
+  ],
+  "citations": [
+    {
+      "rule_category": "FTC_DISCLOSURE",
+      "document": "FTC Guides Concerning Use of Endorsements and Testimonials in Advertising (16 CFR 255)",
+      "content": "Disclosures must be clear and conspicuous and placed where viewers notice them."
+    }
+  ],
+  "verification_summary": {
+    "status": "VERIFIED",
+    "grounding_score": 0.95,
+    "reason": "Transcript confirms product gifted without required disclosure"
+  },
+  "is_degraded_vision_mode": false,
+  "timing_metrics": {
+    "video_download": 1.2,
+    "frame_extraction": 0.8,
+    "vision": 2.1,
+    "planner": 0.9,
+    "auditor": 1.4,
+    "verifier": 1.1,
+    "report": 0.5,
+    "total": 8.0
+  }
+}
