@@ -49,3 +49,34 @@ __pycache__/
 .venv/
 venv/
 .vscode/
+
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Test artifacts
+test_sample_video.mp4
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Coverage
+.coverage
+htmlcov/
